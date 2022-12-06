@@ -1,0 +1,197 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+* {
+  margin: 0;
+  font-family: Raleway;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* navbar */
+a {
+  text-decoration: none;
+}
+
+.navbar{
+  position: absolute;
+  min-height: 80px;
+  width: 100%;
+  background-color: #68EC75;
+}
+
+.brand p {
+  float: left;
+  padding-left: 15px;
+  padding-top: 10px;
+
+}
+
+.brand a{
+  position: absolute;
+  left: 15px;
+  bottom: 5px;
+  font-size: 55px;
+  color: rgb(255, 255, 255);
+}
+
+ul {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  top: 32px;
+  right: 5px;
+}
+
+li {
+  font-size: 15px;
+  float: left;
+  position: relative;
+  text-decoration: none;
+  background-color:  #68EC75;
+  transition-duration: 0.5s;
+}
+  
+li a {
+  display: block;
+  padding: 15px;
+  background-color:  #68EC75;
+  color: white;
+}
+
+li a:hover {
+  background: #3FBA91;
+  cursor: pointer;
+}
+
+li a:active {
+  color: black;
+}
+
+.dropdown {
+  visibility: hidden;
+  min-width: 55px;
+  position: absolute;
+  transition: all 0.5s ease;
+  top: 46px;
+  left: 0;
+  display: none;
+}
+
+ul li:hover > ul,
+.dropdown:hover {
+  visibility: visible;
+  display: block;
+}
+
+.dropdown li {
+  width: 105%;
+  z-index: 1;
+}
+
+.cart-num {
+  color: red;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+
+
+/*    home content    */
+.home-content {
+  position: relative;
+  top: 80px;
+}
+
+.banner-img {
+  float: right;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* forms */
+.login-form {
+  position: relative;
+  display: block;
+  margin: auto;
+  padding-top: 125px;
+  width: 500px;
+  height: 500px;
+  text-align: center;
+}
+
+.login-form h1 {
+  top: 50%;
+}
+
+.login-form a {
+  color: blue;
+}
+
+.register-form {
+  position: relative;
+  display: block;
+  margin: auto;
+  padding-top: 50px;
+  padding-left: 50px;
+  width: 700px;
+  height: 500px;
+  text-align: left;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  margin-top: 10px;
+}
+
+form input {
+  height: auto;
+  border: none;
+  margin-top: 10px;
+  width: 300px;
+  padding: 10px;
+  background-color: #E5E2E2;
+}
+
+button {
+  display: block;
+  background-color: #3898EC;
+  color: white;
+  border: none;
+  margin: auto;
+  margin-top: 10px;
+  padding: 15px 100px;
+}
+
+
+/* categories */
+
+
+/* product page */
+
+
+/* footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  background-color:  #68EC75;
+  text-align: center;
+  color: white;
+}
+
+footer p {
+  padding-top: 25px;
+}
+
+

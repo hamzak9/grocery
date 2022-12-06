@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="xcery.css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="login.js"></script>
+<title>Home Page</title>
+</head>
+
+<body>
+<!-- Navigation bar-->
+<div class="navbar">
+    <nav role="navigation">
+        <p class="brand"><a href="main.html">Xcery</a></p>
+        <ul>
+            <li><a href="#categories.html">
+                <i class="fa fa-th-large" aria-hidden="true"></i>
+                Categories
+            </a></li>
+            <li><a href="index.html">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                Log In
+            </a></li>
+            <li><a href="#shopping-cart">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+                <i class="cart-num"></i>
+                Cart
+            </a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<!-- form -->
+<div class="login-form">
+    <h1>Log In</h1>
+    <form action="user/loginForm" method="POST">
+        <input type="text" placeholder="Email address" id="email" name="email">
+        <input type="password" placeholder="Password" id="password" name="password">
+        <button onclick="validate();">Log In</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register</a></p>
+</div>
+
+
+<!--footer-->
+<div class="footer">
+    <footer><p>©️ 2022 Xcery. All rights reserved</p></footer>
+</div>
+
+</body>
