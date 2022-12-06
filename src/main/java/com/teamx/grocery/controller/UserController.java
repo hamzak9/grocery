@@ -21,12 +21,17 @@ public class UserController  {
     @Autowired
     private UserRepository repository;
 
-    @PostMapping("/create")
-    public void createUser(@RequestBody User user) throws NoSuchAlgorithmException {
-        String hash = getSha512Hash(user.getPassword());
-        user.setPassword(hash);
 
-        repository.insert(user);
+    @PostMapping("/register")
+    public void handleRegistrationForm(HttpServletRequest request) throws NoSuchAlgorithmException {
+        String email = request.getParameter("email");
+        String firstname = request.getParameter("fname");
+        // update user model to account for all the fields in the front end of register.html
+        // remember to hash password
+
+        //repository.insert(user) --> when user obj is created
+
+
     }
     @PostMapping("/delete/{id}")
     public void deleteUser(@PathVariable String id){
@@ -52,12 +57,11 @@ public class UserController  {
 
         Optional<User> user = repository.findUserWithHash(email,hash);
         if(!user.isPresent()){
-          return ResponseEntity.badRequest().body("Error: Invalid username or password!");
+            return ResponseEntity.badRequest().body("Error: Invalid username or password!");
         }
         System.out.println("FOUND:==> " +user.toString());
 
-
-       return new ResponseEntity<>(HttpStatus.OK); // success
+        return new ResponseEntity<>(HttpStatus.OK); // success
 
     }
 
