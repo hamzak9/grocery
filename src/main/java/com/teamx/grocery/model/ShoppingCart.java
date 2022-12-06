@@ -14,7 +14,6 @@ public class ShoppingCart {
         for(Item item : shoppingCart){
             frequencyMap.put(item.getId(),frequencyMap.getOrDefault(item.getId(),0)+1);
         }
-
         return frequencyMap; // return how many of each item in cart
     }
 
