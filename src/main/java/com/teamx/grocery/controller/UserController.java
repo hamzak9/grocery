@@ -23,14 +23,22 @@ public class UserController  {
 
 
     @PostMapping("/register")
-    public void handleRegistrationForm(HttpServletRequest request) throws NoSuchAlgorithmException {
-        String email = request.getParameter("email");
+    public ResponseEntity<?> handleRegistrationForm(HttpServletRequest request) throws NoSuchAlgorithmException {
+
+        String username = request.getParameter("email");
         String firstname = request.getParameter("fname");
-        // update user model to account for all the fields in the front end of register.html
-        // remember to hash password
+        String lastname = request.getParameter("lastname");
+        String password = getSha512Hash(request.getParameter("password"));
+        String city = request.getParameter("city");
+        String provinceTerr = request.getParameter("provTerri");
+        String street = request.getParameter("street");
 
-        //repository.insert(user) --> when user obj is created
+        if(repository.checkIfEmailExists(username).isPresent()){
+            return new ResponseEntity<>("You already have an account!",HttpStatus.BAD_REQUEST); // success
+        }
+        repository.insert(new User(username,password,firstname,lastname,street,city,provinceTerr));
 
+        return new ResponseEntity<>("Account created",HttpStatus.OK); // success
 
     }
     @PostMapping("/delete/{id}")

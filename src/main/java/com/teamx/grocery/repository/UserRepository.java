@@ -9,7 +9,12 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends MongoRepository<User,String> {
+
+    @Query("{ 'username' : ?0}")
+    Optional<User> checkIfEmailExists(String username);
     @Query("{ 'username' : ?0,'password': ?1 }")
     Optional<User> findUserWithHash(String username, String password);
+
+
 
 }
