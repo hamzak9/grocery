@@ -1,8 +1,9 @@
 package com.teamx.grocery.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
+@Document(collection = "items")
 public class Item {
 
     @Id
@@ -16,12 +17,24 @@ public class Item {
     @Field
     private String brand;
 
+    @Field
+    private String description;
 
-    public Item(String name, String price, String rating,String brand) {
+    @Field
+    private String category;
+
+    @Field
+    private String asset;
+
+
+    public Item(String name, String price, String rating,String brand,String description,String category,String asset) {
         this.name = name;
         this.price = price;
         this.rating = rating;
         this.brand=brand;
+        this.description = description;
+        this.category = category;
+        this.asset = asset;
     }
 
 

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <link href="xcery.css" rel="stylesheet" />
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+
+  <script type=" text/javascript" src="login.js"></script>
+  <title>Home Page</title>
+</head>
+
+<body>
+<!-- Navigation bar-->
+<div class="navbar">
+  <nav role="navigation">
+    <p class="brand"><a href="main.html">Xcery</a></p>
+    <ul>
+      <li>
+        <a href="categories.html">
+          <i class="fa fa-th-large" aria-hidden="true"></i>
+          Categories
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          Log In
+        </a>
+      </li>
+      <li>
+        <a href="#shopping-cart">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <i class="cart-num"></i>
+          Cart
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<!-- Navigation bar end here-->
+
+<div class="home-text">
+  <a href="index.html" class="homeButton">⬅️ Home</a>
+</div>
+<div class="category-name">
+  <h1>Dairy</h3>
+</div>
+<!-- Sidebar filter-->
+<section class="sidebar-filter">
+  <div class="sidebar-border">
+    <h3 class="sidebar-header"><strong>Categories</strong></h3>
+
+    <div class="sidebar-separator">
+      <input type="checkbox" value="dairy" /> <label for="dairy">Dairy</label>
+    </div>
+    <div class="sidebar-separator">
+      <input type="checkbox" value="fruits-vegs"/>
+      <label for="fruits-vegetables">Fruits & Vegetables</label>
+    </div>
+    <div class="sidebar-separator">
+      <input type="checkbox" value="meats-seafood"/>
+      <label for="meats-seafood">Meats & Seafood</label>
+    </div>
+    <div class="sidebar-separator">
+      <input type="checkbox" value="frozen"/>
+      <label for="frozen">Frozen</label>
+    </div>
+    <div class="sidebar-separator">
+      <input type="checkbox" value="pantry-food"/>
+      <label for="pantry-food">Pantry Food</label>
+    </div>
+    <div class="sidebar-separator">
+      <input type="checkbox" value="drinks" />
+      <label for="drinks">Drinks</label>
+    </div>
+    <hr />
+    <h3 class="sidebar-header"><strong>Brand</strong></h3>
+
+    <div class="sidebar-separator">
+      <input type="checkbox" value="great-value"/> <label for="great-value">Great Value</label>
+    </div>
+    <div class="sidebar-separator">
+      <input type="checkbox" value="silk"/>
+      <label for="silks">Silk</label>
+    </div>
+    <div class="sidebar-separator">
+      <input type="checkbox" value="black-diamond" />
+      <label for="black-diamond">Black Diamond</label>
+    </div>
+    <div class="sidebar-separator">
+      <input type="checkbox" value="activia"/>
+      <label for="activia">Activia</label>
+    </div>
+    <div class="sidebar-separator">
+      <input type="checkbox" value="natrel" />
+      <label for="natrel">Natrel</label>
+    </div>
+    <div class="sidebar-separator">
+      <input type="checkbox" value="oikos"/>
+      <label for="oikos">Oikos</label>
+    </div>
+  </div>
+  <hr />
+</section>
+<!-- Sidebar filter end here-->
+
+<!-- Products section-->
+<section class="product-section">
+  <!-- 1st row-->
+  <div class="row">
+    <div class="column">
+      <div class="card">
+
+        <img src="assets/omega.jpeg" alt="Great Value Omega 3" style="width:100%">
+        <h4>Great Value Omega-3 Large Egg</h4>
+        <p class="price">$6.19</p>
+        <form action="user/loginForm" method="POST" class="quantity">
+          <div class="quantity">
+            <label for="quantity" class="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min=0 class="quantity">
+            <button onclick="validate();" class="quantity">Add to Cart</button>
+            <!-- <input type="submit" class="quantity add-to-card-btn" name="submit" value="Add To Cart"> -->
+          </div>
+
+        </form>
+        <!-- <p><button>Add to Cart</button></p> -->
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <img src="assets/activia.jpeg" alt="Activia Probiotic Yogurt
+              Strawberry flavour" style="width:100%">
+        <h4>Activia Probiotic Yogurt Strawberry flavour</h4>
+        <p class="price">$5.97</p>
+        <form action="user/loginForm" method="POST" class="quantity">
+          <div class="quantity">
+            <label for="quantity" class="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min=0 class="quantity">
+            <button onclick="validate();" class="quantity">Add to Cart</button>
+            <!-- <input type="submit" class="quantity add-to-card-btn" name="submit" value="Add To Cart"> -->
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <img src="assets/Mozzarella.png" alt="Black Diamond Morazella" style="width:100%">
+        <h4>Black Diamond Morazella</h4>
+        <p class="price">$7.28</p>
+        <form action="user/loginForm" method="POST" class="quantity">
+          <div class="quantity">
+            <label for="quantity" class="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min=0 class="quantity">
+            <button onclick="validate();" class="quantity">Add to Cart</button>
+            <!-- <input type="submit" class="quantity add-to-card-btn" name="submit" value="Add To Cart"> -->
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 1st row end here-->
+
+  <!-- 2nd row-->
+
+</section>
+
+<section class="product-section" >
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="assets/oikos.jpeg" alt="Oikos Vanilla Yorgurt" style="width:100%">
+        <h4>Oikos Vanilla Yorgurt</h4>
+        <p class="price">$5.53</p>
+        <form action="user/loginForm" method="POST" class="quantity">
+          <div class="quantity">
+            <label for="quantity" class="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min=0 class="quantity">
+            <button onclick="validate();" class="quantity">Add to Cart</button>
+            <!-- <input type="submit" class="quantity add-to-card-btn" name="submit" value="Add To Cart"> -->
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <img src="assets/activiaVanila.png" alt="Activia Probiotic Yogurt
+                  Vanilla falvour, 8 Pack" style="width:100%">
+        <h4>Activia Probiotic Yogurt
+          Vanilla falvour, 8 Pack</h4>
+        <p class="price">$6.49</p>
+        <form action="user/loginForm" method="POST" class="quantity">
+          <div class="quantity">
+            <label for="quantity" class="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min=0 class="quantity">
+            <button onclick="validate();" class="quantity">Add to Cart</button>
+            <!-- <input type="submit" class="quantity add-to-card-btn" name="submit" value="Add To Cart"> -->
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <img src="assets/cheedar.png" alt="Black Diamond Cheedar
+                    Slice, 22 slices" style="width:100%">
+        <h4>Black Diamond Cheedar
+          Slice, 22 slices</h4>
+        <p class="price">$3.78</p>
+        <form action="user/loginForm" method="POST" class="quantity">
+          <div class="quantity">
+            <label for="quantity" class="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min=0 class="quantity">
+            <button onclick="validate();" class="quantity">Add to Cart</button>
+            <!-- <input type="submit" class="quantity add-to-card-btn" name="submit" value="Add To Cart"> -->
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Sidebar filter end here-->
+<!--footer-->
+<div class="footer">
+  <footer>
+    <p>©️ 2022 Xcery. All rights reserved</p>
+  </footer>
+</div>
+</body>
+</html>

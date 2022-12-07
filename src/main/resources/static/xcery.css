@@ -212,4 +212,139 @@ footer p {
   padding-top: 25px;
 }
 
+/* shopping cart */
+.flex {
+  display: flex;
+}
+
+.cart {
+  position: relative;
+  margin: auto;
+  padding-top: 25px;
+  padding-left: 25px;
+  width: 700px;
+  height: 500px;
+}
+
+.cart-item {
+  width: 100%;
+  height: 120px;
+  border-top: 1px solid black;
+  align-items: center;
+}
+
+.cart-item img {
+  height: 100px;
+  width: auto;
+  padding-right: 25px;
+}
+
+.cart-item button {
+  font-size: 20px;
+  margin-top: 50px;
+  padding: 5px 10px;
+}
+
+.total {
+  text-align: end;
+}
+
+.total button {
+  margin-right: 0;
+}
+
+.homeButton {
+  color: #06a3fb;
+  position: relative;
+  display: block;
+  margin-top: 90px;
+  margin-left: 20px;
+  width: 100px;
+  height: 30px;
+  text-align: left;
+}
+.sidebar-filter {
+  position: relative;
+  display: inline-block;
+
+  margin-left: 20px;
+  width: 200px;
+  height: 30px;
+  text-align: left;
+}
+.sidebar-header {
+  font-size: 25px;
+}
+.sidebar-separator {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.sidebar-border {
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+.category-name {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  width: 100px;
+  height: 30px;
+  text-align: left;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+margin: auto;
+text-align: center;
+font-family: arial;
+}
+
+.price {
+  color: black;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #3898ec;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+.column {
+  float: right;
+  width: 25%;
+  height: auto;
+  padding: 0 10px;
+  display: flex;
+}
+
+.row {
+}
+.product-section {
+  margin-bottom: 20px;
+}
+.quantity {
+  display: inline;
+  width: auto;
+}
+.add-to-card-btn {
+  display: block;
+  background-color: #3898ec;
+  color: white;
+  border: none;
+  margin: auto;
+  margin-top: 10px;
+  padding: 15px 100px;
+}
+
 
