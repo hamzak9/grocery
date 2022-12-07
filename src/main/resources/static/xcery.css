@@ -191,10 +191,46 @@ button {
 }
 
 
-/* categories */
+/* shopping cart */
+.flex {
+  display: flex;
+}
 
+.cart {
+  position: relative;
+  margin: auto;
+  padding-top: 25px;
+  padding-left: 25px;
+  width: 700px;
+  height: 500px;
+}
 
-/* product page */
+.cart-item {
+  width: 100%;
+  height: 120px;
+  border-top: 1px solid black;
+  align-items: center;
+}
+
+.cart-item img {
+  height: 100px;    
+  width: auto;
+  padding-right: 25px;
+}
+
+.cart-item button {
+  font-size: 20px;
+  margin-top: 50px;
+  padding: 5px 10px;
+}
+
+.total {
+  text-align: end;
+}
+
+.total button {
+  margin-right: 0;
+}
 
 
 /* footer */
