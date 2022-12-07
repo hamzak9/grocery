@@ -134,7 +134,7 @@ ul li:hover > ul,
   color: blue;
 }
 
-.register-form {
+.register-form, .checkout-form {
   position: relative;
   display: block;
   margin: auto;

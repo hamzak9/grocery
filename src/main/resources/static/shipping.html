@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="xcery.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home Page</title>
+</head>
+
+<body>
+<!-- Navigation bar-->
+<div class="navbar">
+    <nav role="navigation">
+        <p class="brand"><a href="main.html">Xcery</a></p>
+        <ul>
+            <li><a href="#categories.html">
+                <i class="fa fa-th-large" aria-hidden="true"></i>
+                Categories
+            </a></li>
+            <li><a href="index.html">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                Log In
+            </a></li>
+            <li><a href="#shopping-cart">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <i class="cart-num"></i>
+                Cart
+            </a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<!-- form -->
+<div class="checkout-form">
+    <h1>Checkout</h1>
+    <form action="user/checkout" method="POST">
+        <p>Personal Information</p>
+        <input type="text" placeholder="First name" id="fname" name="fname">
+        <input type="text" placeholder="Last name" id="lname" name="lname">
+
+        <p>Shipping Address</p>
+        <input type="text" placeholder="Street Address" id="street" name="street">
+        <input type="text" placeholder="City" id="city" name="city">
+        <input type="text" placeholder="Province/Territory" id="provTerri" name="provTerri">
+
+        <p>Payment Information</p>
+        <input type="text" placeholder="Credit Card Number" id="creditcardnum" name="creditcardnum">
+        <input type="text" placeholder="Expiry" id="expirynum" name="expirynum">
+        <input type="text" placeholder="CVV" id="cvv" name="cvv">
+
+        <button>Checkout</button>
+    </form>
+</div>
+
+
+<!--footer-->
+<div class="footer">
+    <footer><p>©️ 2022 Xcery. All rights reserved</p></footer>
+</div>
+
+</body>
