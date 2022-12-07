@@ -125,6 +125,24 @@ ul li:hover > ul,
   height: 500px;
   text-align: center;
 }
+.billing-information-form{
+  position: relative;
+  display: block;
+  margin: auto;
+  padding-top: 125px;
+  width: 500px;
+  height: 500px;
+  text-align: center;
+}
+.shipping-and-order-info{
+  position: relative;
+  display: block;
+  margin: auto;
+  padding-top: 125px;
+  width: 500px;
+  height: 500px;
+  text-align: center;
+}
 
 .login-form h1 {
   top: 50%;
