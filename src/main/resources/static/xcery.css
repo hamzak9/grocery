@@ -73,46 +73,11 @@ li a:active {
   color: black;
 }
 
-.dropdown {
-  visibility: hidden;
-  min-width: 55px;
-  position: absolute;
-  transition: all 0.5s ease;
-  top: 46px;
-  left: 0;
-  display: none;
-}
-
-ul li:hover > ul,
-.dropdown:hover {
-  visibility: visible;
-  display: block;
-}
-
-.dropdown li {
-  width: 105%;
-  z-index: 1;
-}
-
 .cart-num {
   color: red;
   position: absolute;
   top: 0;
   left: 20px;
-}
-
-
-/*    home content    */
-.home-content {
-  position: relative;
-  top: 80px;
-}
-
-.banner-img {
-  float: right;
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* forms */
@@ -191,6 +156,11 @@ button {
 }
 
 
+
+
+
+
+
 /* shopping cart  */
 .flex {
   display: flex;
@@ -233,7 +203,17 @@ button {
 }
 
 
+
+
+
+
 /* footer */
+html {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 100px;
+}
+
 footer {
   position: absolute;
   bottom: 0;
@@ -248,46 +228,9 @@ footer p {
   padding-top: 25px;
 }
 
-/* shopping cart */
-.flex {
-  display: flex;
-}
 
-.cart {
-  position: relative;
-  margin: auto;
-  padding-top: 25px;
-  padding-left: 25px;
-  width: 700px;
-  height: 500px;
-}
 
-.cart-item {
-  width: 100%;
-  height: 120px;
-  border-top: 1px solid black;
-  align-items: center;
-}
-
-.cart-item img {
-  height: 100px;
-  width: auto;
-  padding-right: 25px;
-}
-
-.cart-item button {
-  font-size: 20px;
-  margin-top: 50px;
-  padding: 5px 10px;
-}
-
-.total {
-  text-align: end;
-}
-
-.total button {
-  margin-right: 0;
-}
+/* */
 
 .homeButton {
   color: #06a3fb;
@@ -302,7 +245,7 @@ footer p {
 .sidebar-filter {
   position: relative;
   display: inline-block;
-
+  margin-top: 200px;
   margin-left: 20px;
   width: 200px;
   height: 30px;
