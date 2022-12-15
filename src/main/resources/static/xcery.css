@@ -56,7 +56,7 @@ li {
   background-color:  #68EC75;
   transition-duration: 0.5s;
 }
-  
+
 li a {
   display: block;
   padding: 15px;
@@ -73,46 +73,11 @@ li a:active {
   color: black;
 }
 
-.dropdown {
-  visibility: hidden;
-  min-width: 55px;
-  position: absolute;
-  transition: all 0.5s ease;
-  top: 46px;
-  left: 0;
-  display: none;
-}
-
-ul li:hover > ul,
-.dropdown:hover {
-  visibility: visible;
-  display: block;
-}
-
-.dropdown li {
-  width: 105%;
-  z-index: 1;
-}
-
 .cart-num {
   color: red;
   position: absolute;
   top: 0;
   left: 20px;
-}
-
-
-/*    home content    */
-.home-content {
-  position: relative;
-  top: 80px;
-}
-
-.banner-img {
-  float: right;
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* forms */
@@ -191,28 +156,7 @@ button {
 }
 
 
-/* categories */
-
-
-/* product page */
-
-
-/* footer */
-footer {
-  position: absolute;
-  bottom: 0;
-  height: 100px;
-  width: 100%;
-  background-color:  #68EC75;
-  text-align: center;
-  color: white;
-}
-
-footer p {
-  padding-top: 25px;
-}
-
-/* shopping cart */
+/* shopping cart  */
 .flex {
   display: flex;
 }
@@ -253,6 +197,36 @@ footer p {
   margin-right: 0;
 }
 
+
+
+
+
+
+/* footer */
+html {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 100px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  background-color:  #68EC75;
+  text-align: center;
+  color: white;
+}
+
+footer p {
+  padding-top: 25px;
+}
+
+
+
+/* */
+
 .homeButton {
   color: #06a3fb;
   position: relative;
@@ -266,7 +240,7 @@ footer p {
 .sidebar-filter {
   position: relative;
   display: inline-block;
-
+  margin-top: 200px;
   margin-left: 20px;
   width: 200px;
   height: 30px;
@@ -295,9 +269,9 @@ footer p {
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-margin: auto;
-text-align: center;
-font-family: arial;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
 }
 
 .price {
@@ -346,5 +320,3 @@ font-family: arial;
   margin-top: 10px;
   padding: 15px 100px;
 }
-
-

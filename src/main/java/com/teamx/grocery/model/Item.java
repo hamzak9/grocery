@@ -3,44 +3,13 @@ package com.teamx.grocery.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.List;
+
 @Document(collection = "items")
 public class Item {
 
-    @Id
-    private String id;
-    @Field
-    private String name;
-    @Field
-    private String price;
-    @Field
-    private String rating;
-    @Field
-    private String brand;
 
-    @Field
-    private String description;
-
-    @Field
-    private String category;
-
-    @Field
-    private String asset;
-
-
-    public Item(String name, String price, String rating,String brand,String description,String category,String asset) {
-        this.name = name;
-        this.price = price;
-        this.rating = rating;
-        this.brand=brand;
-        this.description = description;
-        this.category = category;
-        this.asset = asset;
-    }
-
-
-    public String getName() {
-        return name;
-    }
     public String getId() {
         return id;
     }
@@ -48,8 +17,29 @@ public class Item {
     public void setId(String id) {
         this.id = id;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getPrice() {
@@ -60,11 +50,69 @@ public class Item {
         this.price = price;
     }
 
-    public String getRating() {
-        return rating;
+    public String getDescription() {
+        return decription;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setDescription(String description) {
+        this.decription = description;
     }
+
+    public String getAvgRating() {
+        return avgRating;
+    }
+
+    public void setAvgRating(String avgRating) {
+        this.avgRating = avgRating;
+    }
+
+    private String id;
+    @Field
+    private String productName;
+    @Field
+    private String imgUrl;
+    @Field
+    private String category;
+    @Field
+    private String price;
+
+    public List<String> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<String> reviews) {
+        this.reviews = reviews;
+    }
+
+    public String getDecription() {
+        return decription;
+    }
+
+    public void setDecription(String decription) {
+        this.decription = decription;
+    }
+
+    @Field
+    List<String> reviews;
+
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        brand = brand;
+    }
+
+    @Field
+    private String brand;
+    @Field
+    private String decription;
+
+    @Field
+    private String avgRating;
+
+
+
+
 }

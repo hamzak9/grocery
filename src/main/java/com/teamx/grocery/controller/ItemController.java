@@ -20,13 +20,6 @@ public class ItemController {
 
     @Autowired
     private ItemRepository repository;
-
-    @PostMapping("/addToCart")
-    public ResponseEntity<?> handleRegistrationForm(HttpServletRequest request) throws NoSuchAlgorithmException {
-
-        return null;
-    }
-
     @GetMapping("/getAllItems")
     public ResponseEntity<?> getAllItems(){
         List<Item> items = repository.findAll();

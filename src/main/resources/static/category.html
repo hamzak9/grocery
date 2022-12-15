@@ -21,91 +21,34 @@
   </style>
 </head>
 <body>
-<!-- Navigation bar-->
-<div class="navbar">
-  <nav role="navigation">
-    <p class="brand"><a href="main.html">Xcery</a></p>
-    <ul>
-      <li>
-        <a href="categories.html">
-          <i class="fa fa-th-large" aria-hidden="true"></i>
-          Categories
-        </a>
-      </li>
-      <li>
-        <a href="index.html">
-          <i class="fa fa-user" aria-hidden="true"></i>
-          Log In
-        </a>
-      </li>
-      <li>
-        <a href="#shopping-cart">
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          <i class="cart-num"></i>
-          Cart
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
-<!-- Navigation bar end here-->
-<!-- Sidebar filter-->
-<section class="sidebar-filter">
-  <div class="sidebar-border">
-    <h3 class="sidebar-header"><strong>Categories</strong></h3>
 
-    <div class="sidebar-separator">
-      <input type="checkbox" value="dairy" /> <label for="dairy">Dairy</label>
-    </div>
-    <div class="sidebar-separator">
-      <input type="checkbox" value="fruits-vegs"/>
-      <label for="fruits-vegetables">Fruits & Vegetables</label>
-    </div>
-    <div class="sidebar-separator">
-      <input type="checkbox" value="meats-seafood"/>
-      <label for="meats-seafood">Meats & Seafood</label>
-    </div>
-    <div class="sidebar-separator">
-      <input type="checkbox" value="frozen"/>
-      <label for="frozen">Frozen</label>
-    </div>
-    <div class="sidebar-separator">
-      <input type="checkbox" value="pantry-food"/>
-      <label for="pantry-food">Pantry Food</label>
-    </div>
-    <div class="sidebar-separator">
-      <input type="checkbox" value="drinks" />
-      <label for="drinks">Drinks</label>
-    </div>
-    <hr />
-    <h3 class="sidebar-header"><strong>Brand</strong></h3>
-
-    <div class="sidebar-separator">
-      <input type="checkbox" value="great-value"/> <label for="great-value">Great Value</label>
-    </div>
-    <div class="sidebar-separator">
-      <input type="checkbox" value="silk"/>
-      <label for="silks">Silk</label>
-    </div>
-    <div class="sidebar-separator">
-      <input type="checkbox" value="black-diamond" />
-      <label for="black-diamond">Black Diamond</label>
-    </div>
-    <div class="sidebar-separator">
-      <input type="checkbox" value="activia"/>
-      <label for="activia">Activia</label>
-    </div>
-    <div class="sidebar-separator">
-      <input type="checkbox" value="natrel" />
-      <label for="natrel">Natrel</label>
-    </div>
-    <div class="sidebar-separator">
-      <input type="checkbox" value="oikos"/>
-      <label for="oikos">Oikos</label>
-    </div>
+<div class="sidebar">
+  <div class="widget user_widget_search">
+    <h2>Filter</h2>
+    <form id="user_wiget_search_form" class="user_wiget_search_form" method="GET">
+      <div class="form-group">
+      </div>
+      <div class="form-group">
+        <label class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">Dairy & Eggs</span>
+        </label>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" class="custom-control-input">
+        <label class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">Meat</span>
+        </label>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-block btn-primary">Submit</button>
+      </div>
+    </form>
   </div>
-  <hr />
-</section>
+</div>
 <!-- Sidebar filter end here-->
 <section class="product-section">
   <div id="productContainer" class="container">

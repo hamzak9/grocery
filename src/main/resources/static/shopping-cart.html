@@ -1,62 +1,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="xcery.css" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script type="text/javascript" src="shopping-cart.js"></script>
+    <title>Shopping cart</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="shopping-cart.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<title>Shopping Cart</title>
 </head>
-
 <body>
-<!-- Navigation bar-->
-<div class="navbar">
-    <nav role="navigation">
-        <p class="brand"><a href="main.html">Xcery</a></p>
-        <ul>
-            <li><a href="#categories.html">
-                <i class="fa fa-th-large" aria-hidden="true"></i>
-                Categories
-            </a></li>
-            <li><a href="login.html">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                Log In
-            </a></li>
-            <li><a href="#shopping-cart">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
-                <i class="cart-num"></i>
-                Cart
-            </a></li>
-        </ul>
-    </nav>
+<div>
+    <h1>Currently logged in As :</h1>
 </div>
-
-
-<!-- shopping cart -->
-<div class="cart">
-    <h1>Your Cart</h1>
-    <div id="cart">
-        <div class="cart-item flex">
-            <img id="item-img" src="img/kiwi.jpg"> 
-            <p id="item-name">Item Name Here</p>
-            <button type="button">-</button>
-            <p id="item-quantity">5</p>
-            <button type="button">+</button>
-            <button type="button"><i class="fa fa-trash" aria-hidden="true"></i></button> 
+<div class="CartContainer" style="overflow:scroll; height:400px">
+    <div class="Header">
+        <h3 class="Heading">Shopping Cart</h3>
+        <h5 class="Action">Remove all</h5>
+    </div>
+    <div class="Cart-Items pad">
+        <div class="image-box">
+            <img src="assets/apple.png" style={{ height="120px" }}/>
+        </div>
+        <div class="about">
+            <h1 class="title">Apple Juice</h1>
+            <h3 class="subtitle">250ml</h3>
+            <img src="assets/veg.png" style={{ height="30px" }}/>
+        </div>
+        <div class="counter">
+            <div class="btn">+</div>
+            <div class="count">2</div>
+            <div class="btn">-</div>
+        </div>
+        <div class="prices">
+            <div class="amount">$2.99</div>
+            <div class="remove"><u>Remove</u></div>
         </div>
     </div>
-    <div class="total">
-        <h4 id="total-price">Total: $7.65<h5>
-        <button type="button">Checkout</button>
+    <div class="Cart-Items pad">
+        <div class="image-box">
+            <img src="assets/grapes.png" style={{ height="120px" }}/>
+        </div>
+        <div class="about">
+            <h1 class="title">Grapes Juice</h1>
+            <h3 class="subtitle">250ml</h3>
+            <img src="assets/veg.png" style={{ height="30px" }}/>
+        </div>
+        <div class="counter">
+            <div class="btn">+</div>
+            <div class="count">1</div>
+            <div class="btn">-</div>
+        </div>
+        <div class="prices">
+            <div class="amount">$3.19</div>
+            <div class="remove"><u>Remove</u></div>
+        </div>
+    </div>
+    <div class="Cart-Items pad">
+        <div class="image-box">
+            <img src="assets/grapes.png" style={{ height="120px" }}/>
+        </div>
+        <div class="about">
+            <h1 class="title">Grapes Juice</h1>
+            <h3 class="subtitle">250ml</h3>
+            <img src="assets/veg.png" style={{ height="30px" }}/>
+        </div>
+        <div class="counter">
+            <div class="btn">+</div>
+            <div class="count">1</div>
+            <div class="btn">-</div>
+        </div>
+        <div class="prices">
+            <div class="amount">$3.19</div>
+            <div class="remove"><u>Remove</u></div>
+        </div>
+    </div>
+    <div class="Cart-Items pad">
+        <div class="image-box">
+            <img src="assets/grapes.png" style={{ height="120px" }}/>
+        </div>
+        <div class="about">
+            <h1 class="title">Grapes Juice</h1>
+            <h3 class="subtitle">250ml</h3>
+            <img src="assets/veg.png" style={{ height="30px" }}/>
+        </div>
+        <div class="counter">
+            <div class="btn">+</div>
+            <div class="count">1</div>
+            <div class="btn">-</div>
+        </div>
+        <div class="prices">
+            <div class="amount">$3.19</div>
+            <div class="remove"><u>Remove</u></div>
+        </div>
     </div>
 
+
+    <hr>
+    <div class="checkout">
+        <div class="total">
+            <div>
+                <div class="Subtotal">Sub-Total</div>
+                <div class="items">2 items</div>
+            </div>
+            <div class="total-amount">$6.18</div>
+        </div>
+        <button class="button">Checkout</button>
+    </div>
 </div>
 
-
-<!--footer-->
-<footer>
-    <p>©️ 2022 Xcery. All rights reserved</p></footer>
-
 </body>
+</html>

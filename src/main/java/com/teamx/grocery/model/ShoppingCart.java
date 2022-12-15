@@ -1,24 +1,48 @@
 package com.teamx.grocery.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+@Document(collection = "ShoppingCart")
 public class ShoppingCart {
 
-    List<Item> cart = new ArrayList<Item>();
+    @Id
+    private String id;
 
-    public HashMap<String,Integer> itemCount(ArrayList<Item> shoppingCart){
-        HashMap<String,Integer> frequencyMap = new HashMap<>();
-
-        for(Item item : shoppingCart){
-            frequencyMap.put(item.getId(),frequencyMap.getOrDefault(item.getId(),0)+1);
-        }
-        return frequencyMap; // return how many of each item in cart
+    public ShoppingCart(String email, HashMap<String, Integer> map) {
+        this.email = email;
+        this.map = map;
     }
 
-    public void addItemToCart(Item item){
-        cart.add(item); // Increase frequency instead? check if >0 and <0 to remove completely or not,
+    public String getEmail() {
+        return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Field
+    private String email;
+    @Field
+    HashMap<String,Integer> map = new HashMap<>();
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public HashMap<String, Integer> getMap() {
+        return map;
+    }
+
+    public void setMap(HashMap<String, Integer> map) {
+        this.map = map;
+    }
 }
