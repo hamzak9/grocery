@@ -7,5 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface ItemRepository extends MongoRepository<Item,String> {
+    Item findItemById(String id);
+
 //    List<Item> getAllItems();
 }

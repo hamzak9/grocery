@@ -1,5 +1,6 @@
 package com.teamx.grocery.controller;
 
+import com.mongodb.BasicDBObject;
 import com.teamx.grocery.model.Item;
 import com.teamx.grocery.model.ShoppingCart;
 import com.teamx.grocery.repository.ItemRepository;
@@ -8,14 +9,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.apache.coyote.Response;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @CrossOrigin
 @RestController
@@ -23,7 +23,6 @@ import java.util.Optional;
 public class CartController {
     @Autowired
     private ShoppingCartRepository repository;
-
 
 
     @GetMapping("/getCart")
@@ -41,27 +40,34 @@ public class CartController {
         System.out.println(payload);
 
         JSONObject json = new JSONObject(payload);
-        String username = json.getString("username");
+        String email = json.getString("username");
         String itemID = json.getString("item");
+        System.out.println(email);
 
-        Optional<HashMap<String,Integer>> map  = repository.getCartByUsername(username);
-        if(!map.isPresent()){ // create new shopping cart
-            HashMap<String,Integer> itemMap = new HashMap<>();
-            itemMap.put(itemID,1);
-            ShoppingCart cart = new ShoppingCart(username,itemMap);
+        Optional<ShoppingCart> userCart  = repository.getCartByUsername(email);
+
+
+        if(!userCart.isPresent()){ // create new shopping cart
+            System.out.println("NO DOCUMENT HFOUND()");
+            List<String> list = new ArrayList<>();
+            list.add(itemID);
+            LinkedHashMap<String,Integer> map = new LinkedHashMap<>();
+            map.put(itemID,1);
+
+            ShoppingCart cart = new ShoppingCart(email,map);
             repository.save(cart);
         }
         else{
-            HashMap<String,Integer> itemMap = map.get();
-            if (itemMap.containsKey(itemID)) {
-                itemMap.put(itemID, itemMap.get(itemID) + 1);
-            } else {
-                itemMap.put(itemID, 1);
-            }
-            ShoppingCart cart = new ShoppingCart(username,itemMap);
-            repository.save(cart);
+            BasicDBObject obj = new BasicDBObject(userCart.get().getCart());
+            LinkedHashMap<String,Integer> map =  (LinkedHashMap<String, Integer>) obj.toMap();
+
+            map.put(itemID,map.getOrDefault(itemID,0)+1);
+            userCart.get().setCart(map);
+
+            repository.save(userCart.get());
 
         }
+
 
         return new ResponseEntity<>(HttpStatus.OK);
 
