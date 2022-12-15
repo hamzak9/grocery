@@ -8,8 +8,6 @@ window.onload = async function() {
                 console.log(res);
             })
             .catch((error) => console.log("error Getting list of items", error));
-
-
 };
 
 function createCards(res){
