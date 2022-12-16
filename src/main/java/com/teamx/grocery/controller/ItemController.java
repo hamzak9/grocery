@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -31,16 +32,14 @@ public class ItemController {
     @PostMapping("/addComment")
     public ResponseEntity<?> addComment(@RequestBody String payload){
         JSONObject json = new JSONObject(payload);
-        // make sure that the payload contains these two informations, so we can
-        // identify the correct item to add the comment to
         String comment = json.getString("comment");
         String itemID = json.getString("id");
 
         Item item = repository.findItemById(itemID);
-       // item.setReviews();  --> create a method like appendComment that appends the comment
-        // to the end of the item's reviews list ( Check item in Model folder)
-        // then call repository.save(item) to update the item in mongo and ur done
 
+        item.getReviews().add(comment);
+
+        repository.save(item);
 
         return new ResponseEntity<>(HttpStatus.OK);
 
