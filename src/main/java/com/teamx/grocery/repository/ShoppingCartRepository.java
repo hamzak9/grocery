@@ -4,6 +4,7 @@ import com.mongodb.BasicDBObject;
 import com.teamx.grocery.model.Item;
 import com.teamx.grocery.model.ShoppingCart;
 import com.teamx.grocery.model.User;
+import org.bson.BsonDocument;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

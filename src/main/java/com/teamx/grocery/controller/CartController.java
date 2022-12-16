@@ -7,6 +7,9 @@ import com.teamx.grocery.repository.ItemRepository;
 import com.teamx.grocery.repository.ShoppingCartRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.coyote.Response;
+import org.bson.BsonDocument;
+import org.bson.json.JsonObject;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -23,32 +26,81 @@ import java.util.*;
 public class CartController {
     @Autowired
     private ShoppingCartRepository repository;
+    @Autowired
+    private ItemRepository itemRepository;
 
 
-    @GetMapping("/getCart")
+    @PostMapping("/getCart")
     public ResponseEntity<?> getCart(@RequestBody String payload){
-        JSONObject json = new JSONObject(payload);
-        String username = json.getString("username");
 
-//       HashMap<Item,Integer> map  = repository.getCartByUsername(username);
+        JSONObject json = new JSONObject(payload);
+        String email = json.getString("email");
+
+        Optional<ShoppingCart> cart = repository.getCartByUsername(email);
+
+        if(!cart.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        LinkedHashMap<String,Integer> freqMap = cart.get().getCart();
+        Map<Item,Integer> map = new LinkedHashMap<>();
+
+        List<Item> result = itemRepository.findAllById(cart.get().getCart().keySet());
+        for(Item i : result){
+            map.put(i,freqMap.get(i.getId()));
+        }
+        JSONArray jsonArray = new JSONArray();
+//        int total = 0;
+        for (Map.Entry<Item, Integer> entry : map.entrySet()) {
+            JSONObject inner = new JSONObject();
+            inner.put("name",entry.getKey().getProductName());
+            inner.put("price",entry.getKey().getPrice());
+            inner.put("count",entry.getValue().toString());
+            inner.put("brand",entry.getKey().getBrand());
+
+            jsonArray.put(inner);
+//            total += inner.getInt("price") * inner.getInt("quantity");
+
+        }
+//
+//        JSONObject cost = new JSONObject();
+//        cost.put("total",String.valueOf(total));
+//        jsonArray.put(cost);
+
+
+        return new ResponseEntity<>(jsonArray.toString(),HttpStatus.OK);
+    }
+
+    @PostMapping("deleteItem")
+    public ResponseEntity<?> deleteFromCart(@RequestBody String payload){
+        JSONObject json = new JSONObject(payload);
+        String email = json.getString("username");
+        String itemName = json.getString("itemName");
+
+
+       Optional<ShoppingCart> cart =  repository.getCartByUsername(email);
+       Item item = itemRepository.findItemByName(itemName);
+
+       cart.get().deleteFromCart(item.getId()); // delete the key value pair from map
+        repository.save(cart.get());
+
 
         return new ResponseEntity<>(HttpStatus.OK);
+
+
+
     }
 
     @PostMapping("/addToCart")
     public ResponseEntity<?> addToCart(@RequestBody String payload){
-        System.out.println(payload);
 
         JSONObject json = new JSONObject(payload);
         String email = json.getString("username");
         String itemID = json.getString("item");
-        System.out.println(email);
 
         Optional<ShoppingCart> userCart  = repository.getCartByUsername(email);
 
 
         if(!userCart.isPresent()){ // create new shopping cart
-            System.out.println("NO DOCUMENT HFOUND()");
             List<String> list = new ArrayList<>();
             list.add(itemID);
             LinkedHashMap<String,Integer> map = new LinkedHashMap<>();

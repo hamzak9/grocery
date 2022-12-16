@@ -77,7 +77,7 @@ public class UserController  {
 
         JSONObject json = new JSONObject(payload);
 
-        Optional<User> user = repository.findUserWithHash(json.getString("username"),getSha512Hash(json.getString("password")));
+        Optional<User> user = repository.findUserWithHash(json.getString("username").toLowerCase(),getSha512Hash(json.getString("password")));
         if(!user.isPresent()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 

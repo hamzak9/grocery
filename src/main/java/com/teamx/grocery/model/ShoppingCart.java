@@ -32,6 +32,9 @@ public class ShoppingCart {
     public void setCart(LinkedHashMap<String, Integer> cart) {
         this.cart = cart;
     }
+    public void deleteFromCart(String itemId){
+        this.cart.remove(itemId);
+    }
 
     @Field
     private String email;

@@ -65,7 +65,7 @@ public class Item {
     public void setAvgRating(String avgRating) {
         this.avgRating = avgRating;
     }
-
+    @Id
     private String id;
     @Field
     private String productName;
