@@ -1,11 +1,14 @@
 package com.teamx.grocery.model;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 @Document(collection = "orders")
 public class Orders {
@@ -14,22 +17,9 @@ public class Orders {
 
     @Id
     private String Id;
-    public Orders(){
-        this.itemsJson = new JSONArray();
-    }
-    public Orders(JSONArray itemsJson, String fname, String lname, String city, String province, String email, String total, String address) {
-        this.itemsJson = itemsJson;
-        this.fname = fname;
-        this.lname = lname;
-        this.city = city;
-        this.province = province;
-        this.email = email;
-        this.total = total;
-        this.address = address;
-    }
 
     @Field
-    private JSONArray itemsJson;
+    List<LinkedHashMap<String, Object>> itemDetailsList = new ArrayList<>();
 
     @Field
     private String fname;
@@ -59,12 +49,23 @@ public class Orders {
         Id = id;
     }
 
-    public JSONArray getItemsJson() {
-        return itemsJson;
+    public Orders(List<LinkedHashMap<String, Object>> itemDetailsList, String fname, String lname, String city, String province, String email, String total, String address) {
+        this.itemDetailsList = itemDetailsList;
+        this.fname = fname;
+        this.lname = lname;
+        this.city = city;
+        this.province = province;
+        this.email = email;
+        this.total = total;
+        this.address = address;
     }
 
-    public void setItemsJson(JSONArray itemsJson) {
-        this.itemsJson = itemsJson;
+    public List<LinkedHashMap<String, Object>> getItemDetailsList() {
+        return itemDetailsList;
+    }
+
+    public void setItemDetailsList(List<LinkedHashMap<String, Object>> itemDetailsList) {
+        this.itemDetailsList = itemDetailsList;
     }
 
     public String getFname() {

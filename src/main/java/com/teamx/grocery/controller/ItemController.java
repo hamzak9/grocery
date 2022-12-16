@@ -4,6 +4,7 @@ import com.teamx.grocery.model.Item;
 import com.teamx.grocery.model.User;
 import com.teamx.grocery.repository.ItemRepository;
 import com.teamx.grocery.repository.UserRepository;
+import com.teamx.grocery.services.ItemService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,12 @@ import java.util.List;
 public class ItemController {
 
     @Autowired
-    private ItemRepository repository;
+    private ItemService itemService;
+
     @GetMapping("/getAllItems")
     public ResponseEntity<?> getAllItems(){
-        List<Item> items = repository.findAll();
+        List<Item> items = itemService.retrieveAllItems();
+
         return new ResponseEntity<>(items, HttpStatus.OK);
 
     }
@@ -35,11 +38,11 @@ public class ItemController {
         String comment = json.getString("comment");
         String itemID = json.getString("id");
 
-        Item item = repository.findItemById(itemID);
+        Item item = itemService.findItemById(itemID);
 
         item.getReviews().add(comment);
 
-        repository.save(item);
+        itemService.updateItem(item);
 
         return new ResponseEntity<>(HttpStatus.OK);
 

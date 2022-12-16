@@ -1,11 +1,14 @@
 package com.teamx.grocery.controller;
 
+import com.mongodb.BasicDBObject;
 import com.teamx.grocery.model.Item;
 import com.teamx.grocery.model.Orders;
 import com.teamx.grocery.model.ShoppingCart;
 import com.teamx.grocery.repository.ItemRepository;
 import com.teamx.grocery.repository.OrdersRepository;
 import com.teamx.grocery.repository.ShoppingCartRepository;
+import com.teamx.grocery.services.AdministratorService;
+import com.teamx.grocery.services.ItemService;
 import org.bson.BsonDocument;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,38 +35,32 @@ import static java.rmi.server.LogStream.log;
 @RequestMapping("/admin")
 public class AdministratorController {
     @Autowired
-    private ShoppingCartRepository repository;
-    @Autowired
-    private ItemRepository itemRepository;
-    @Autowired
-    private MongoTemplate mongoTemplate;
-    @Autowired
-    private OrdersRepository ordersRepository;
+    private AdministratorService administratorService;
+
     @GetMapping("/getAnalytics")
     public ResponseEntity<?> getAnalytics() {
-        List<Orders> orders = ordersRepository.findAll();
+        List<Orders> orders = administratorService.getAllOrders();
 
-        ObjectMapper mapper = new ObjectMapper();
-        List<JSONObject> items = new ArrayList<>();
-
-
+        List<Map<String, Object>> analyticsData = new ArrayList<>();
+        double totalSales = 0;
         for (Orders order : orders) {
-            try {
-                JSONArray jsonArray = new JSONArray(mapper.writeValueAsString(order.getItemsJson()));
-                for (int i = 0; i < jsonArray.length(); i++) {
-
-                    items.add(jsonArray.getJSONObject(i));
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            List<LinkedHashMap<String, Object>> itemDetailsList = order.getItemDetailsList();
+            double orderTotal = 0;
+            for (LinkedHashMap<String, Object> singleMap : itemDetailsList) {
+                orderTotal += (double) singleMap.get("orderTotal");
             }
+            Map<String, Object> data = new HashMap<>();
+            data.put("itemDetails", itemDetailsList);
+            data.put("orderTotal", orderTotal);
+            analyticsData.add(data);
+            totalSales += orderTotal;
         }
-        return new ResponseEntity<>(items, HttpStatus.OK);
-    }
 
+        Map<String, Object> response = new HashMap<>();
+        response.put("analyticsData", analyticsData);
+        response.put("totalSales", totalSales);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 
 }

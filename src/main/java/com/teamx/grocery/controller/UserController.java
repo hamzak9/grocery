@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.teamx.grocery.repository.UserRepository;
+import com.teamx.grocery.services.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.bson.json.JsonObject;
 import org.json.JSONArray;
@@ -31,7 +32,7 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController  {
     @Autowired
-    private UserRepository repository;
+    private UserService userService;
 
 
     @PostMapping("/register")
@@ -48,23 +49,18 @@ public class UserController  {
         String provinceTerr = json.getString("provinceTerri");
         String address = json.getString("address");
 
-        if(repository.checkIfEmailExists(username).isPresent()){
+        if(userService.checkIfEmailExists(username).isPresent()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST); // already have account
 
         }
         User user = new User(username,hash,firstname,lastname,address,city,provinceTerr);
 
-        repository.insert(user);
-        System.out.println("REGISTERED");
+        userService.addUser(user);
         return new ResponseEntity<>(HttpStatus.OK);
 
 
     }
-    @PostMapping("/delete/{id}")
-    public void deleteUser(@PathVariable String id){
-        repository.deleteById(id);
 
-    }
     public String getSha512Hash(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-512");
         byte[] messageDigest = md.digest(password.getBytes());
@@ -77,7 +73,7 @@ public class UserController  {
 
         JSONObject json = new JSONObject(payload);
 
-        Optional<User> user = repository.findUserWithHash(json.getString("username").toLowerCase(),getSha512Hash(json.getString("password")));
+        Optional<User> user = userService.findUserWithHash(json.getString("username").toLowerCase(),getSha512Hash(json.getString("password")));
         if(!user.isPresent()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
@@ -98,16 +94,10 @@ public class UserController  {
         response.put(fullName);
 
 
-        System.out.println("AUTHENTICATED");
         return new ResponseEntity<>(response,HttpStatus.OK);
 
 
     }
 
-    public ResponseEntity<?> getAllUsers(){
-        List<User> users = repository.findAll();
-        return new ResponseEntity<>(users, HttpStatus.OK);
-
-    }
 
 }
