@@ -27,13 +27,16 @@ public class StoreController {
         String userPromo = json.getString("promo");
         double discount = 0;
         List<Promotion> promos = storeService.getAllActivePromotions();
+        JSONObject resp = new JSONObject();
+
         for(Promotion p : promos){
     if(p.getPromotion().equals(userPromo)){
-         discount = p.getDiscount();
+        resp.put("discount",p.getDiscount());
+        resp.put("description",p.getDescription());
     }
         }
 
-        return new ResponseEntity<>(discount, HttpStatus.OK);
+        return new ResponseEntity<>(resp.toString(), HttpStatus.OK);
 
     }
 

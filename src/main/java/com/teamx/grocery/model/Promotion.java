@@ -9,6 +9,17 @@ public class Promotion {
     @Id
     private String id;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Field
+    private String description;
+
     public Promotion(String id, String promotion, double discount) {
         this.id = id;
         this.promotion = promotion;
